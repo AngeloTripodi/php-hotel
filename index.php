@@ -59,6 +59,11 @@
 
     <main>
 
+        <form action="./filter.php" method="GET">
+            <input type="text" name="parkings">
+            <button type="submit">invia</button>
+        </form>
+
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
@@ -82,17 +87,18 @@
 
 
                             foreach ($hotels as $hotel) {
+                                $parkingYoN = '';
                                 if ($hotel['parking'] == 1) {
-                                    $hotel['parking'] = 'yes';
+                                    $parkingYoN = 'yes';
                                 } else {
-                                    $hotel['parking'] = 'no';
+                                    $parkingYoN = 'no';
                                 };
 
                                 echo "
                                 <tr>
                                 <td> {$hotel['name']} </td>
                                 <td> {$hotel['description']} </td>
-                                <td> {$hotel['parking']}</td>
+                                <td> {$parkingYoN}</td>
                                 <td> {$hotel['vote']} / 5 </td>
                                 <td> {$hotel['distance_to_center']} Km </td>
                                 </tr>";
